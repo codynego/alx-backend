@@ -44,8 +44,10 @@ class Server:
         """
         assert isinstance(page_size, int), "page_size must be an integer"
         assert isinstance(page, int), "page must be an integer"
-        assert page_size >= 0, "page_size must be greater than 0"
-        assert page >= 0, "page must be greater than 0"
+        assert page_size != 0, "page_size must not be 0"
+        assert page != 0, "page must not be 0"
+        assert page_size > 0, "page_size must be greater than 0"
+        assert page > 0, "page must be greater than 0"
 
         page_index = index_range(page, page_size)
 
