@@ -5,7 +5,7 @@ Main file
 
 index_range = __import__('0-simple_helper_function').index_range
 
-res = index_range(3, 2)
+res = index_range(3000, 100)
 print(type(res))
 print(res)
 
