@@ -39,7 +39,6 @@ class LFUCache(BaseCaching):
             pass
         else:
             self.age_bits[key] = 0
-        print(self.age_bits)
 
     def get(self, key):
         """
