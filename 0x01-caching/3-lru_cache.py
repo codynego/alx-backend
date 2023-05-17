@@ -15,6 +15,7 @@ class LRUCache(BaseCaching):
         initializing the instances
         """
         self.age_bits = {}
+        self.age = 0
         super().__init__()  # calling the parent class
 
     def put(self, key, item):
@@ -36,8 +37,8 @@ class LRUCache(BaseCaching):
         if key in self.age_bits:
             pass
         else:
-            self.age_bits[key] = 0
-        # print(self.age_bits)
+            self.age_bits[key] = self.age
+        self.age += 1
 
     def get(self, key):
         """
@@ -45,5 +46,6 @@ class LRUCache(BaseCaching):
         """
         if key is None or key not in self.cache_data:
             return None
-        self.age_bits[key] += 1
+        self.age_bits[key] = self.age
+        self.age += 1
         return self.cache_data[key]
