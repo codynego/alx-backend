@@ -10,8 +10,11 @@ from flask import render_template
 app = Flask(__name__)
 
 
-@app.route('/')
-def index():
+@app.route('/', strict_slashes=False)
+def index() -> str:
+    """
+    render an html template
+    """
     return render_template('0-index.html')
 
 
